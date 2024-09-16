@@ -58,6 +58,7 @@ Input/output types:
 - **Wave**: A single-cycle waveform, e.g. `(Sin 1)`.
 - **Table**: A 256-waveform table, e.g. `(Nst)` or `(Sin (Val 1 2))`
 - **Wave/Table**: Either a **Wave** or **Table**.
+- **Impulse(s)**: An impulse response or table of impulse responses.
 - **Image**: Image data, e.g. `(ImportImage "my_image.png")`
 - **String**: Text enclosed in quotes, e.g. `"Hello!"` or `"my_file.png"`
 
@@ -316,6 +317,8 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-crs.gif)
 
+Crossfade between two waves/tables.
+
 *Output*: **Wave/Table**
 
 ### Str [To, From, Wave/Table]
@@ -323,6 +326,8 @@ Fade the start & end of a wave/table from zero.
 <small>Example: `Graph Str(Val 0.25 1) 0.25 Tri1`</small>
 
 ![](doc-img/example-str.gif)
+
+Stretch a wave/table from one point to another.
 
 *Output*: **Wave/Table**
 
@@ -332,6 +337,8 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-shf.gif)
 
+Shift a wave/table vertically.
+
 *Output*: **Wave/Table**
 
 ### Slc [Amount, Wave/Table]
@@ -339,6 +346,8 @@ Fade the start & end of a wave/table from zero.
 <small>Example: `Graph Slc(Val 1 0.25) Sin1`</small>
 
 ![](doc-img/example-slc.gif)
+
+Slice a wave/table from the beginning to a given point.
 
 *Output*: **Wave/Table**
 
@@ -348,6 +357,8 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-spd.gif)
 
+Speed a wave/table up or down in octaves.
+
 *Output*: **Wave/Table**
 
 ### Spl [Amount, Wave/Table 1, Wave/Table 2]
@@ -355,6 +366,8 @@ Fade the start & end of a wave/table from zero.
 <small>Example: `Graph Spl(Val 0 1) Sin1 Tri1`</small>
 
 ![](doc-img/example-spl.gif)
+
+Splice the beginning of one wave with the end of another wave.
 
 *Output*: **Wave/Table**
 
@@ -364,6 +377,8 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-clp.gif)
 
+Hard-clip a wave/table.
+
 *Output*: **Wave/Table**
 
 ### Cls [Exponent, Wave/Table]
@@ -371,6 +386,8 @@ Fade the start & end of a wave/table from zero.
 <small>Example: `Graph Amp0.8 Cls3 Amp(Val 1 2) Sin1`</small>
 
 ![](doc-img/example-cls.gif)
+
+Soft-clip a wave/table.
 
 *Output*: **Wave/Table**
 
@@ -380,6 +397,8 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-wrp.gif)
 
+Wrap the clipping parts of a wave/table to the other side.
+
 *Output*: **Wave/Table**
 
 ### Fld [Wave/Table]
@@ -387,6 +406,8 @@ Fade the start & end of a wave/table from zero.
 <small>Example: `Graph Amp0.8 Fld Amp(Val 1 2) Sin1`</small>
 
 ![](doc-img/example-fld.gif)
+
+Fold the clipping parts of a wave/table backwards.
 
 *Output*: **Wave/Table**
 
@@ -396,6 +417,8 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-sat.gif)
 
+Apply tanh saturation to a wave/table.
+
 *Output*: **Wave/Table**
 
 ### Fuz [Gain, Shift, Wave/Table]
@@ -403,6 +426,8 @@ Fade the start & end of a wave/table from zero.
 <small>Example: `Graph Amp0.8 Fuz (Val 1 2) 0.5 Sin1`</small>
 
 ![](doc-img/example-fuz.gif)
+
+Apply tanh fuzz to a wave/table.
 
 *Output*: **Wave/Table**
 
@@ -412,6 +437,8 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-rct.png)
 
+Rectify a wave/table (invert negative values).
+
 *Output*: **Wave/Table**
 
 ### AM [Amplitude, Modulator, Carrier]
@@ -419,6 +446,8 @@ Fade the start & end of a wave/table from zero.
 <small>Example: `Graph Amp0.8 AM(Val 0 1) Sin4 Sin1`</small>
 
 ![](doc-img/example-am.gif)
+
+Amplitude-modulate a wave/table with another wave/table.
 
 *Output*: **Wave/Table**
 
@@ -428,6 +457,8 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-rm.png)
 
+Ring-modulate a wave/table with another wave/table.
+
 *Output*: **Wave/Table**
 
 ### FM [Amplitude, Modulator, Carrier]
@@ -435,6 +466,8 @@ Fade the start & end of a wave/table from zero.
 <small>Example: `Graph FM(Val 0 1) Sin3 Sin1`</small>
 
 ![](doc-img/example-fm.gif)
+
+Frequency-modulate a wave/table with another wave/table.
 
 *Output*: **Wave/Table**
 
@@ -444,6 +477,8 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-cnv.png)
 
+Convolve a wave/table with an impulse response.
+
 *Output*: **Wave/Table**
 
 ### Phr [Amount, Wave/Table]
@@ -451,6 +486,8 @@ Fade the start & end of a wave/table from zero.
 <small>Example: `Graph Phr0.2 Saw1`</small>
 
 ![](doc-img/example-phr.gif)
+
+Randomize the phases of a wave/table's harmonics.
 
 *Output*: **Wave/Table**
 
@@ -460,6 +497,8 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-hwf.gif)
 
+Filter a wave/table using another wave/table's harmonics.
+
 *Output*: **Wave/Table**
 
 ### Dwn [Amount, Wave/Table]
@@ -468,69 +507,7 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-dwn.gif)
 
-*Output*: **Wave/Table**
-
-### LPS [Harmonic, Wave/Table]
-
-<small>Example: `Graph LPS(Val 0 10) Amp0.8 Sqr1`</small>
-
-![](doc-img/example-lps.gif)
-
-*Output*: **Wave/Table**
-
-### HPS [Harmonic, Wave/Table]
-
-<small>Example: `Graph HPS(Val 0 10) Amp0.8 Sqr1`</small>
-
-![](doc-img/example-hps.gif)
-
-*Output*: **Wave/Table**
-
-### LPW [Harmonic, Window, Wave/Table]
-
-<small>Example: `Graph LPW(Val 0 10) 2 Amp0.8 Sqr1`</small>
-
-![](doc-img/example-lpw.gif)
-
-*Output*: **Wave/Table**
-
-### HPW [Harmonic, Window, Wave/Table]
-
-<small>Example: `Graph HPW(Val 0 10) 2 Amp0.8 Sqr1`</small>
-
-![](doc-img/example-hpw.gif)
-
-*Output*: **Wave/Table**
-
-### LPP [Harmonic, Wave/Table]
-
-<small>Example: `Graph LPP(Val 0 10) Amp0.8 Sqr1`</small>
-
-![](doc-img/example-lpp.gif)
-
-*Output*: **Wave/Table**
-
-### HPP [Harmonic, Wave/Table]
-
-<small>Example: `Graph HPP(Val 0 10) Amp0.8 Sqr1`</small>
-
-![](doc-img/example-hpp.gif)
-
-*Output*: **Wave/Table**
-
-### LPE [Harmonic, Wave/Table]
-
-<small>Example: `Graph LPE(Val 0 10) Amp0.8 Sqr1`</small>
-
-![](doc-img/example-lpe.gif)
-
-*Output*: **Wave/Table**
-
-### HPE [Harmonic, Wave/Table]
-
-<small>Example: `Graph HPE(Val 0 10) Amp0.8 Sqr1`</small>
-
-![](doc-img/example-hpe.gif)
+Downsample a wave/table.
 
 *Output*: **Wave/Table**
 
@@ -540,6 +517,8 @@ Fade the start & end of a wave/table from zero.
 
 ![](doc-img/example-lp.gif)
 
+Apply a window-adjusted sinc low-pass filter to a wave/table.
+
 *Output*: **Wave/Table**
 
 ### HP [Harmonic, Wave/Table]
@@ -547,5 +526,87 @@ Fade the start & end of a wave/table from zero.
 <small>Example: `Graph HP(Val 0 10) Amp0.8 Sqr1`</small>
 
 ![](doc-img/example-hp.gif)
+
+Apply a window-adjusted sinc high-pass filter to a wave/table.
+
+*Output*: **Wave/Table**
+
+### LPS [Harmonic, Wave/Table]
+
+<small>Example: `Graph LPS(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-lps.gif)
+
+Apply a sinc low-pass filter to a wave/table.
+
+*Output*: **Wave/Table**
+
+### HPS [Harmonic, Wave/Table]
+
+<small>Example: `Graph HPS(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-hps.gif)
+
+Apply a sinc high-pass filter to a wave/table.
+
+*Output*: **Wave/Table**
+
+### LPW [Harmonic, Window, Wave/Table]
+
+<small>Example: `Graph LPW(Val 0 10) 2 Amp0.8 Sqr1`</small>
+
+![](doc-img/example-lpw.gif)
+
+Apply a windowed-sinc low-pass filter to a wave/table.
+
+*Output*: **Wave/Table**
+
+### HPW [Harmonic, Window, Wave/Table]
+
+<small>Example: `Graph HPW(Val 0 10) 2 Amp0.8 Sqr1`</small>
+
+![](doc-img/example-hpw.gif)
+
+Apply a windowed-sinc high-pass filter to a wave/table.
+
+*Output*: **Wave/Table**
+
+### LPP [Harmonic, Wave/Table]
+
+<small>Example: `Graph LPP(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-lpp.gif)
+
+Apply a pulse low-pass filter to a wave/table.
+
+*Output*: **Wave/Table**
+
+### HPP [Harmonic, Wave/Table]
+
+<small>Example: `Graph HPP(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-hpp.gif)
+
+Apply a pulse high-pass filter to a wave/table.
+
+*Output*: **Wave/Table**
+
+### LPE [Harmonic, Wave/Table]
+
+<small>Example: `Graph LPE(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-lpe.gif)
+
+Apply an exponential low-pass filter to a wave/table.
+
+*Output*: **Wave/Table**
+
+### HPE [Harmonic, Wave/Table]
+
+<small>Example: `Graph HPE(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-hpe.gif)
+
+Apply an exponential high-pass filter to a wave/table.
 
 *Output*: **Wave/Table**
