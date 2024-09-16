@@ -5,52 +5,56 @@
 # TODO: fix Str (stretch) buzzing
 # TODO: Sid (side by side)
 # TODO: Error handling
+# TODO: Fix NewName
 
-S ↚ 2048                                       # Samples per oscillator
-O ↚ 256                                        # Oscillators per table
-T ↚ ×S O                                       # Samples per table
-SU ↚ ÷2+1                                      # Signed to unsigned
-US ↚ -1×2                                      # Unsigned to signed
-OU ↚ ÷⟜⇡S                                      # Oscillator base, unsigned 0-1
-OT ↚ ×τOU                                      # Oscillator base, trigonometric 0-2π
-R ↚ ↯¤T                                        # Oscillator to table (repeat)
-U ↚ ⍥(⊢⍉↯⊟:⟜÷2⊸⧻)                              # Octave up (for playback only)
-GH ↚ 200                                       # Graph height
-C ↚ ↥¯1↧1                                      # Clamp
-SW ↚ ⊏◿⧻,                                      # Select (wrapped)
-SI ↚ +⊙×⟜-⊃⊃(SW⌊)(SW⌈)(-⊸⌊)                    # Select (interpolated)
-RI ↚ SI×⇡:÷,⧻,                                 # Resize (interpolated)
-CS ↚ ∿+η                                       # Cosine
-NR ↚ ↧⊸↥                                       # NaN replace
-SC ↚ NR1÷⟜∿                                    # Sinc
-VB ↚ ÷-1⟜⇡O                                    # Value base
-VR ↚ +⊙×:-⟜:                                   # Value range [min, max, values]
-GL ↚ 16                                        # GIF length (frames)
-SH ↚ 200                                       # Spectrum graph height
-FV ↚ ÷2√S                                      # Fourier max value
-SV ↚ +1⌊×÷2Sⁿ2÷⟜⇡÷4S                           # Spectrum index values
-IS ↚ ⨬(&gifs15|&ims)=2⧻△.                      # Show image or gif
-SM ↚ ⇌∧(⊂+⊸⊃⋅∘(×⊙⋅⊢))⊙(:¤°⊂)                   # Scan add + multiply
-MB ↚ ÷:1ⁿ16 2                                  # Minimum 16-bit value
-FT ↚ ⊃(∠°ℂ)(÷FV⌵)↙+1÷2S fft                    # Fourier transform [phase, amp ← wave]
-FU ↚ ◌°ℂ°fft⊂:⍜°ℂ¯↘1⇌↘1.ℂ⊃(×∿)(×CS)⊙(×FV)      # Fourier untransform [wave ← phase, amp]
-DS ↚ |1 ⍥(⊂:"/")>0⧻.                           # Add slash to directory name
-CG ↚ ⍢⊢(=1⧻)≡(⇌⬚1⊞≠⇡GH⁅×-1GH SU U2C)▽=0⇡⌊÷GL O # Create graph
-ST ↚ ⊂↯:@0↥0-:⊙(⧻.$"_")                        # Num to string w/ trailing zeroes
-CE ↚ ≍⬚@ ↯⊙:¤⧻.⊙⇌⇌                             # Check extension [ext, name]
+S ← 2048                                       # Samples per oscillator
+O ← 256                                        # Oscillators per table
+T ← ×S O                                       # Samples per table
+SU ← ÷2+1                                      # Signed to unsigned
+US ← -1×2                                      # Unsigned to signed
+OU ← ÷⟜⇡S                                      # Oscillator base, unsigned 0-1
+OT ← ×τOU                                      # Oscillator base, trigonometric 0-2π
+R ← ↯¤T                                        # Oscillator to table (repeat)
+U ← ⍥(⊢⍉↯⊟:⟜÷2⊸⧻)                              # Octave up (for playback only)
+GH ← 200                                       # Graph height
+C ← ↥¯1↧1                                      # Clamp
+SW ← ⊏◿⧻,                                      # Select (wrapped)
+SI ← +⊙×⟜-⊃⊃(SW⌊)(SW⌈)(-⊸⌊)                    # Select (interpolated)
+RI ← SI×⇡:÷,⧻,                                 # Resize (interpolated)
+CS ← ∿+η                                       # Cosine
+NR ← ↧⊸↥                                       # NaN replace
+SC ← NR1÷⟜∿                                    # Sinc
+VB ← ÷-1⟜⇡O                                    # Value base
+VR ← +⊙×:-⟜:                                   # Value range [min, max, values]
+GL ← 16                                        # GIF length (frames)
+SH ← 200                                       # Spectrum graph height
+FV ← ÷2√S                                      # Fourier max value
+SV ← +1⌊×÷2Sⁿ2÷⟜⇡÷4S                           # Spectrum index values
+SP ← ⍢⊢(=1⧻)≡(⇌⊞≥÷SH⇡SH⊏SV÷FV↙÷2S⌵fft)▽=0⇡⌊÷GL O # Spectrum graph
+SF ← ⍢⊢(=1⧻)≡(⇌⊞≥÷SH⇡SH÷FV⌵fft)▽=0⇡⌊÷GL O # Spectrum graph (full)
+IS ← ⨬(&gifs15|&ims)=2⧻△.                      # Show image or gif
+SM ← ⇌∧(⊂+⊸⊃⋅∘(×⊙⋅⊢))⊙(:¤°⊂)                   # Scan add + multiply
+MB ← ÷:1ⁿ16 2                                  # Minimum 16-bit value
+FT ← ⊃(∠°ℂ)(÷FV⌵)↙+1÷2S fft                    # Fourier transform [phase, amp ← wave]
+FU ← ◌°ℂ°fft⊂:⍜°ℂ¯↘1⇌↘1.ℂ⊃(×∿)(×CS)⊙(×FV)      # Fourier untransform [wave ← phase, amp]
+DS ← |1 ⍥(⊂:"/")>0⧻.                           # Add slash to directory name
+CG ← ⍢⊢(=1⧻)≡(⇌⬚1⊞≠⇡GH⁅×-1GH SU U2C)▽=0⇡⌊÷GL O # Create graph
+ST ← ⊂↯:@0↥0-:⊙(⧻.$"_")                        # Num to string w/ trailing zeroes
+CE ← ≍⬚@ ↯⊙:¤⧻.⊙⇌⇌                             # Check extension [ext, name]
 True ← 1                                       # True constant
 False ← 0                                      # False constant
-R₀ ↚ ☇0                                        # Rerank zero
-R₁ ↚ ☇1                                        # Rerank one
-V! ↚ R₁≡^!R₀
-VV! ↚ R₁≡^!R₀⊙R₀
-VVA! ↚ R₁≡^!R₀⊙R₀⊙⊙R₁
-VA! ↚ R₁≡^!R₀⊙R₁
-VAA! ↚ R₁≡^!R₀⊙R₁⊙⊙R₁
-A! ↚ R₁≡^!R₁
-AA! ↚ R₁≡^!R₁⊙R₁
+R₀ ← ☇0                                        # Rerank zero
+R₁ ← ☇1                                        # Rerank one
+V! ← R₁≡^!R₀
+VV! ← R₁≡^!R₀⊙R₀
+VVA! ← R₁≡^!R₀⊙R₀⊙⊙R₁
+VA! ← R₁≡^!R₀⊙R₁
+VAA! ← R₁≡^!R₀⊙R₁⊙⊙R₁
+A! ← R₁≡^!R₁
+AA! ← R₁≡^!R₁⊙R₁
 
 # ---- Impulses
+
 # Identity (delta) impulse
 IId ← ¤¤1
 # Phase shifted delta impulse [Phase (0-1)]
@@ -76,6 +80,7 @@ ILPE ← V!(÷/+.ⁿ:e¯×OU×ₙeⁿ3 10)
 IHPE ← V!(-:IPhs0ILPE)
 
 # ---- Table values
+
 # Values (linear) [Min, Max]
 Val ← VR⊙⊙(VB)
 # Values (power in) [Min, Max, Base]
@@ -84,12 +89,14 @@ ValPI ← VR⊙⊙(ⁿ:VB)
 ValPO ← ⇌ValPI:
 
 # ---- Helpers
+
 # Random (min-max) [Min, Max]
 Rnd ← +×⚂:⟜-
 # Random (min-max) [Min, Max]
 RndI ← ⌊Rnd:+1:⍥:<,,
 
 # ---- Wave Operations
+
 # Sum [{Waves/Tables}]
 Sum ← °□/+⍚R₁
 # Average [{Waves/Tables}]
@@ -181,6 +188,7 @@ LP ← LPW.
 HP ← HPW.
 
 # ---- Table operations
+
 # Comb filter (feedback) [Amplitude, Harmonic, Wave/Table]
 TCmb ← ↯O_S SM⊙(⬚0↯⊂⌈÷:T.⁅÷:S⊙R)
 # Comb filter (feedforward) [Amplitude, Harmonic, Wave/Table]
@@ -193,6 +201,7 @@ TCtp ← ↯O_S-÷2+/↧⟜/↥.R
 TCtm ← ↯O_S-÷T/+.R
 
 # ---- Waveforms
+
 # Sine wave [Harmonic]
 Sin ← V!(∿×:OT)
 # Saw wave [Harmonic]
@@ -209,22 +218,12 @@ Nsw ← (☇1US⍥(⊂⚂)S[])
 Sil ← R₁⬚0↯¤S[]
 
 # ---- Tables
+
 # Noise table []
 Nst ← (⍥(⊂Nsw)O[])
 
-# ---- Settings
-Desktop ← False
-InDirAudio ← "in"
-InDirImage ← "in"
-OutDirAudio ← "out"
-OutDirImage ← "out"
-OutDirGraph ← "out"
-OutDirSpectrum ← "out"
-OutSuffixImage ← ""
-OutSuffixGraph ← "g"
-OutSuffixSpectrum ← "s"
-
 # ---- Utility
+
 # Print string [String]
 Print ← &pf
 # Print string with newline [String]
@@ -240,11 +239,11 @@ Graph ← IS CG
 # Display image [Wave/Table]
 Image ← &ims↯O_S SU R C♭
 # Read image from file [Filename]
-ImportImage ← RI O≡RI S⍜⍉≡(÷3/+↙3)◌°img&frab⍥(⊂DS InDirImage)Desktop
+ImportImage ← RI O≡RI S⍜⍉≡(÷3/+↙3)◌°img&frab
 # Read wave from file [Filename]
-ImportWave ← R₁ RI S◌◌°audio&frab⍥(⊂DS InDirAudio)Desktop
+ImportWave ← R₁ RI S◌◌°audio&frab
 # Read 256-wave table from file [Filename]
-ImportTable ← ↯O_S RI T◌◌°audio&frab⍥(⊂DS InDirAudio)Desktop
+ImportTable ← ↯O_S RI T◌◌°audio&frab
 # Table to wave [Table]
 TableAverage ← R₁÷O/+↯O_S
 # Table to wave [Index (0-255), Table]
@@ -254,58 +253,9 @@ ImageToTable ← US
 # Display graph of impulse [Wave/Table]
 GraphImpulse ← Graph A!(⬚0×↯S1)
 # Display spectrum graph [Wave/Table]
-GraphSpectrum ← IS⍢⊢(=1⧻)≡(⇌⊞≥÷SH⇡SH⊏SV÷FV↙÷2S⌵fft)▽=0⇡⌊÷GL O
+GraphSpectrum ← IS SP
 # Display full spectrum graph [Wave/Table]
-GraphSpectrumFull ← IS⍢⊢(=1⧻)≡(⇌⊞≥÷SH⇡SH÷FV⌵fft)▽=0⇡⌊÷GL O
-# Save wave or table to file [Filename, Wave/Table]
-WriteAudio ← &fwa⍥(⊂DS&fmd.OutDirAudio)Desktop⊂⊙(".wav"audio"wav"&asrC♭)
-# Save image to file [Filename, Wave/Table]
-WriteImage ← (
-  ⊂⊙(⊂OutSuffixImage".png"img"png"∵[..:1]↯O_S SU R C♭)
-  &fwa⍥(⊂DS&fmd.OutDirImage)Desktop)
-# Save graph to file [Filename, Wave/Table]
-WriteGraph ← (
-  ⍥(⊂DS&fmd.OutDirGraph)Desktop⊂:OutSuffixGraph⊙(>3⧻△.∵[..:1]CG)
-  &fwa⨬(⊂:".png"⊙(img"png")|⊂:".gif"⊙(gif16)):
-)
-# Save spectrum graph to file [Filename, Wave/Table]
-WriteSpectrum ← (
-  ⊙(⍢⊢(=1⧻)≡(⇌⊞≥÷SH⇡SH⊏SV÷FV↙÷2S⌵fft)▽=0⇡⌊÷GL O)
-  ⍥(⊂DS&fmd.OutDirSpectrum)Desktop⊂:OutSuffixSpectrum⊙(>3⧻△.∵[..:1])
-  &fwa⨬(⊂:".png"⊙(img"png")|⊂:".gif"⊙(gif16)):
-)
-# Save full spectrum graph to file [Filename, Wave/Table]
-WriteSpectrumFull ← (
-  ⊙(⍢⊢(=1⧻)≡(⇌⊞≥÷SH⇡SH÷FV⌵fft)▽=0⇡⌊÷GL O)
-  ⍥(⊂DS&fmd.OutDirSpectrum)Desktop⊂:OutSuffixSpectrum⊙(>3⧻△.∵[..:1])
-  &fwa⨬(⊂:".png"⊙(img"png")|⊂:".gif"⊙(gif16)):
-)
-# Generates unused name for output
-NewName ← (
-  ⨬(⍚&fld{....."./"}
-  | {OutDirAudio OutDirImage.OutDirGraph.OutDirSpectrum}
-    ⍚(⍚↘⧻:⍥(▽∵&fif.)>1⧻.&fld.⊂"./"DS&fmd.)
-  )Desktop
-  ⍢(+1
-  | {⊂:".wav"⟜(⊂⊂:OutSuffixImage:".png")
-     ⟜(⊂⊂:OutSuffixGraph:".gif")⟜(⊂⊂:OutSuffixGraph:".png")
-     ⟜(⊂⊂:OutSuffixSpectrum:".gif")⟜(⊂⊂:OutSuffixSpectrum:".png")}ST5,,
-    /↥≡(∈°□:)
-  ) 0
-  ST5⊙◌
-)
-# Gets name of random .wav file [Subfolder]
-RandomAudioFile ← (
-  ⨬(&fld"./"|⍚↘⧻:▽∵&fif.&fld.⊂"./"DS&fmd.⊂InDirAudio)Desktop
-  ▽≡(CE".wav"°□).
-  ⨬(""◌|°□⊏⌊×⚂⧻.)>0⧻.
-)
-# Gets name of random .png file [Subfolder]
-RandomImageFile ← (
-  ⨬(&fld"./"|⍚↘⧻:▽∵&fif.&fld.⊂"./"DS&fmd.⊂InDirImage)Desktop
-  ▽≡(CE".png"°□).
-  ⨬(""◌|°□⊏⌊×⚂⧻.)>0⧻.
-)
+GraphSpectrumFull ← IS SF
 # Repeat function [Function, Num]
 Repeat! ← ⍥^!
 # Call random function (2 choices)
@@ -314,6 +264,3 @@ DoRandom‼ ← ⨬^!^!⌊×2⚂
 DoRandom‼! ← ⨬(^!|^!|^!)⌊×3⚂
 # Call random function (4 choices)
 DoRandom‼‼ ← ⨬(^!|^!|^!|^!)⌊×4⚂
-# Exit (use at end of script)
-Exit ← ⍥(&exit0)Desktop
-

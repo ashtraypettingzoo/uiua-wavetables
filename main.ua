@@ -5,6 +5,12 @@
   ~ Amp Avg Bit Clp Cls Crs Ctm Ctp Fad Fld Fuz Inv Max Mir Phs Rct Rev Sat Shf Slc Spd Spl Str Sum Wrp Zer
   ~ DoRandom‼ DoRandom‼! DoRandom‼‼ Exit Repeat!
   ~ Export Graph GraphImpulse GraphSpectrum GraphSpectrumFull Image ImageToTable
+  ~ IHPE IHPP IHPS IHPW IId ILPE ILPP ILPS ILPW IPhs
   ~ ImportImage ImportTable ImportWave NL Print PrintL TableAverage TableIndex Test
   ~ NewName RandomAudioFile RandomImageFile WriteAudio WriteGraph WriteImage WriteSpectrum WriteSpectrumFull
   ~ Nst Nsw Pul Saw Sil Sin Sqr Tri
+  ~ Val ValPI ValPO
+
+WriteSpectrum "yo" Sin(Val 1 10)
+
+Exit
