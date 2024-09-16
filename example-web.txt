@@ -10,4 +10,5 @@
   ~ Nst Nsw Pul Saw Sil Sin Sqr Tri
   ~ Val ValPI ValPO
 
+# Example code
 Test Sin1

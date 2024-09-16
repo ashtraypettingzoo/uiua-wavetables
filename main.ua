@@ -11,6 +11,8 @@
   ~ Nst Nsw Pul Saw Sil Sin Sqr Tri
   ~ Val ValPI ValPO
 
+# Example code
 Test Sin 1
 
+# Leave this exit call
 Exit
