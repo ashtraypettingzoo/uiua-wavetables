@@ -12,7 +12,7 @@
   ~ Val ValPI ValPO
 
 # Example code
-Test Sin 1
+Test Sin1
 
 # Leave this exit call
 Exit

@@ -176,3 +176,376 @@ Generates a white noise table. Unlike **Nsw**, each wave in the table will be un
 
 *Output*: **Table**
 
+## Wave operations
+
+Operations (effects/transformations) on waveforms & tables. If all **Value** arguments are **Number**s and all **Wave/Table** arguments are **Wave**s, the output is a single waveform. If any of the arguments are a **Range** or **Table**, the output is a table of waveforms.
+
+### Sum [{Waves/Tables}]
+
+<small>Example: `Graph Sum {Amp0.2 Saw1 Amp0.4 Sqr3}`</small>
+
+![](doc-img/example-sum.png)
+
+Sum a list of waves/tables.
+
+*Output*: **Wave/Table**
+
+### Avg [{Waves/Tables}]
+
+<small>Example: `Graph Avg {Sin1 Sin3}`</small>
+
+![](doc-img/example-avg.png)
+
+Average a list of waves/tables.
+
+*Output*: **Wave/Table**
+
+### Amp [Amount, Wave/Table]
+
+<small>Example: `Graph Amp0.3 Sin2`</small>
+
+![](doc-img/example-amp.png)
+
+Amplify a wave/table.
+
+*Output*: **Wave/Table**
+
+### Max [Wave/Table]
+
+<small>Example: `Graph Max Amp0.3 Sin2`</small>
+
+![](doc-img/example-max.png)
+
+Maximize a wave/table by peaks. Each wave in a table is maximized independently.
+
+*Output*: **Wave/Table**
+
+### Ctp [Wave/Table]
+
+<small>Example: `Graph Ctp Rct Sin1`</small>
+
+![](doc-img/example-ctp.png)
+
+Center a wave/table by peaks. Each wave in a table is centered independently.
+
+*Output*: **Wave/Table**
+
+### Ctm [Wave/Table]
+
+<small>Example: `Graph Ctm Amp0.4 Pul 2 (Val 0 1)`</small>
+
+![](doc-img/example-ctm.gif)
+
+Center a wave/table by mean. Each wave in a table is centered independently.
+
+*Output*: **Wave/Table**
+
+### Phs [Amount, Wave/Table]
+
+<small>Example: `Graph Phs0.25 Sin1`</small>
+
+![](doc-img/example-phs.png)
+
+Phase-shift a wave/table.
+
+*Output*: **Wave/Table**
+
+### Zer [Wave/Table]
+
+<small>Example: `Graph Zer Saw1`</small>
+
+![](doc-img/example-zer.png)
+
+Phase-shift a wave/table to its rightmost zero point.
+
+*Output*: **Wave/Table**
+
+### Bit [Amount, Wave/Table]
+
+<small>Example: `Graph Bit(Val 0 1) Sin1`</small>
+
+![](doc-img/example-bit.gif)
+
+Bitcrush a wave/table.
+
+*Output*: **Wave/Table**
+
+### Rev [Wave/Table]
+
+<small>Example: `Graph Rev Pul 1 0.2`</small>
+
+![](doc-img/example-rev.png)
+
+Reverse a wave/table left-to-right.
+
+*Output*: **Wave/Table**
+
+### Inv [Wave/Table]
+
+<small>Example: `Graph Inv Pul 1 0.2`</small>
+
+![](doc-img/example-inv.png)
+
+Invert a wave/table top-to-bottom.
+
+*Output*: **Wave/Table**
+
+### Mir [Wave/Table]
+
+<small>Example: `Graph Mir Saw3`</small>
+
+![](doc-img/example-mir.png)
+
+Mirror the left half of a wave/table into the right half.
+
+*Output*: **Wave/Table**
+
+### Fad [Amount, Wave/Table]
+
+<small>Example: `Graph Fad0.2 Saw1`</small>
+
+![](doc-img/example-fad.png)
+
+Fade the start & end of a wave/table from zero.
+
+*Output*: **Wave/Table**
+
+### Crs [Amount, Start Wave/Table, End Wave/Table]
+
+<small>Example: `Graph Crs(Val 0 1) Saw2 Sin3`</small>
+
+![](doc-img/example-crs.gif)
+
+*Output*: **Wave/Table**
+
+### Str [To, From, Wave/Table]
+
+<small>Example: `Graph Str(Val 0.25 1) 0.25 Tri1`</small>
+
+![](doc-img/example-str.gif)
+
+*Output*: **Wave/Table**
+
+### Shf [Amount, Wave/Table]
+
+<small>Example: `Graph Shf(Val ¯0.5 0.5) Amp0.5 Sin2`</small>
+
+![](doc-img/example-shf.gif)
+
+*Output*: **Wave/Table**
+
+### Slc [Amount, Wave/Table]
+
+<small>Example: `Graph Slc(Val 1 0.25) Sin1`</small>
+
+![](doc-img/example-slc.gif)
+
+*Output*: **Wave/Table**
+
+### Spd [Octaves, Wave/Table]
+
+<small>Example: `Graph Spd(Val 1 3) Sin1`</small>
+
+![](doc-img/example-spd.gif)
+
+*Output*: **Wave/Table**
+
+### Spl [Amount, Wave/Table 1, Wave/Table 2]
+
+<small>Example: `Graph Spl(Val 0 1) Sin1 Tri1`</small>
+
+![](doc-img/example-spl.gif)
+
+*Output*: **Wave/Table**
+
+### Clp [Wave/Table]
+
+<small>Example: `Graph Amp0.8 Clp Amp(Val 1 2) Sin1`</small>
+
+![](doc-img/example-clp.gif)
+
+*Output*: **Wave/Table**
+
+### Cls [Exponent, Wave/Table]
+
+<small>Example: `Graph Amp0.8 Cls3 Amp(Val 1 2) Sin1`</small>
+
+![](doc-img/example-cls.gif)
+
+*Output*: **Wave/Table**
+
+### Wrp [Wave/Table]
+
+<small>Example: `Graph Amp0.8 Wrp Amp(Val 1 2) Sin1`</small>
+
+![](doc-img/example-wrp.gif)
+
+*Output*: **Wave/Table**
+
+### Fld [Wave/Table]
+
+<small>Example: `Graph Amp0.8 Fld Amp(Val 1 2) Sin1`</small>
+
+![](doc-img/example-fld.gif)
+
+*Output*: **Wave/Table**
+
+### Sat [Gain, Wave/Table]
+
+<small>Example: `Graph Amp0.8 Sat(Val 1 2) Sin1`</small>
+
+![](doc-img/example-sat.gif)
+
+*Output*: **Wave/Table**
+
+### Fuz [Gain, Shift, Wave/Table]
+
+<small>Example: `Graph Amp0.8 Fuz (Val 1 2) 0.5 Sin1`</small>
+
+![](doc-img/example-fuz.gif)
+
+*Output*: **Wave/Table**
+
+### Rct [Wave/Table]
+
+<small>Example: `Graph Rct Sin1`</small>
+
+![](doc-img/example-rct.png)
+
+*Output*: **Wave/Table**
+
+### AM [Amplitude, Modulator, Carrier]
+
+<small>Example: `Graph Amp0.8 AM(Val 0 1) Sin4 Sin1`</small>
+
+![](doc-img/example-am.gif)
+
+*Output*: **Wave/Table**
+
+### RM [Modulator, Carrier]
+
+<small>Example: `Graph RM Sin2 Sin7`</small>
+
+![](doc-img/example-rm.png)
+
+*Output*: **Wave/Table**
+
+### FM [Amplitude, Modulator, Carrier]
+
+<small>Example: `Graph FM(Val 0 1) Sin3 Sin1`</small>
+
+![](doc-img/example-fm.gif)
+
+*Output*: **Wave/Table**
+
+### Cnv [Impulse(s), Wave/Table]
+
+<small>Example: `Graph Cnv (ILPS 3) Sqr1`</small>
+
+![](doc-img/example-cnv.png)
+
+*Output*: **Wave/Table**
+
+### Phr [Amount, Wave/Table]
+
+<small>Example: `Graph Phr0.2 Saw1`</small>
+
+![](doc-img/example-phr.gif)
+
+*Output*: **Wave/Table**
+
+### Hwf [Amount, Filter Wave/Table, Source Wave/Table]
+
+<small>Example: `Graph Hwf(Val 0 1) Saw3 Sqr1`</small>
+
+![](doc-img/example-hwf.gif)
+
+*Output*: **Wave/Table**
+
+### Dwn [Amount, Wave/Table]
+
+<small>Example: `Graph Dwn(Val 0 1) Sin1`</small>
+
+![](doc-img/example-dwn.gif)
+
+*Output*: **Wave/Table**
+
+### LPS [Harmonic, Wave/Table]
+
+<small>Example: `Graph LPS(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-lps.gif)
+
+*Output*: **Wave/Table**
+
+### HPS [Harmonic, Wave/Table]
+
+<small>Example: `Graph HPS(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-hps.gif)
+
+*Output*: **Wave/Table**
+
+### LPW [Harmonic, Window, Wave/Table]
+
+<small>Example: `Graph LPW(Val 0 10) 2 Amp0.8 Sqr1`</small>
+
+![](doc-img/example-lpw.gif)
+
+*Output*: **Wave/Table**
+
+### HPW [Harmonic, Window, Wave/Table]
+
+<small>Example: `Graph HPW(Val 0 10) 2 Amp0.8 Sqr1`</small>
+
+![](doc-img/example-hpw.gif)
+
+*Output*: **Wave/Table**
+
+### LPP [Harmonic, Wave/Table]
+
+<small>Example: `Graph LPP(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-lpp.gif)
+
+*Output*: **Wave/Table**
+
+### HPP [Harmonic, Wave/Table]
+
+<small>Example: `Graph HPP(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-hpp.gif)
+
+*Output*: **Wave/Table**
+
+### LPE [Harmonic, Wave/Table]
+
+<small>Example: `Graph LPE(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-lpe.gif)
+
+*Output*: **Wave/Table**
+
+### HPE [Harmonic, Wave/Table]
+
+<small>Example: `Graph HPE(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-hpe.gif)
+
+*Output*: **Wave/Table**
+
+### LP [Harmonic, Wave/Table]
+
+<small>Example: `Graph LP(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-lp.gif)
+
+*Output*: **Wave/Table**
+
+### HP [Harmonic, Wave/Table]
+
+<small>Example: `Graph HP(Val 0 10) Amp0.8 Sqr1`</small>
+
+![](doc-img/example-hp.gif)
+
+*Output*: **Wave/Table**

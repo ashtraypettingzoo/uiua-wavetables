@@ -120,7 +120,7 @@ Rev ← A!⇌
 # Invert [Wave/Table]
 Inv ← A!¯
 # Mirror 1st half [Wave/Table]
-Mir ← A!(⊂⇌.↙÷2S)
+Mir ← A!(⊂:⇌.↙÷2S)
 # Fade start & end [Amount (0-1), Wave/Table]
 Fad ← VA!(⇌⬚1×⇌:⬚1⟜×÷⧻.⇡⌊÷2×S↥0)
 # Crossfade [Amount (0-1), Start Wave/Table, End Wave/Table]
