@@ -1,3 +1,1 @@
----Testlib ~ Inc
-  Inc ← + 1
----
+Inc ← + 1
