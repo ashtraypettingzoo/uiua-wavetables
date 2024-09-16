@@ -9,3 +9,5 @@
   ~ ImportImage ImportTable ImportWave NL Print PrintL TableAverage TableIndex Test
   ~ Nst Nsw Pul Saw Sil Sin Sqr Tri
   ~ Val ValPI ValPO
+
+Test Sin1
