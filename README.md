@@ -5,12 +5,12 @@
 Utilities for generating & editing single-cycle waveforms & wavetables in Uiua. 
 
 - Runs on version 0.13.0-dev.2 of Uiua
-- Imports audio files as waveforms or 256-waveform tables
+- Imports 16-bit audio files as waveforms or 256-waveform tables
 - Imports image files (converted to greyscale & stretched to 2048x256)
 - Exports waveforms as 2048-sample, 44100hz, 16-bit .wav files
 - Exports 256-waveform tables as 524288-sample, 44100hz, 16-bit .wav files
 - Exports wavetable images as 2048x256 .png files (compatible with Serum)
-- Exports waveform or table graphs & spectrums as .png files
+- Exports waveform/table graphs & spectrum graphs as .png or .gif files
 
 ### Running online
 
