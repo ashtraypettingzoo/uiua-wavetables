@@ -9,6 +9,7 @@
   ~ ImportImage ImportTable ImportWave NL Print PrintL TableAverage TableIndex Test
   ~ NewName RandomAudioFile RandomImageFile WriteAudio WriteGraph WriteImage WriteSpectrum WriteSpectrumFull
   ~ Nst Nsw Pul Saw Sil Sin Sqr Tri
+  ~ Rnd RndI
   ~ Val ValPI ValPO
 
 # Example code

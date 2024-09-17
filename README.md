@@ -1,6 +1,4 @@
-# Uiua Wavetable Editor
-
-### [Try online in Uiua pad](https://uiua.org/pad?src=0_13_0-dev_2__IyBFeHBlcmltZW50YWwhCiMgVWl1YSAwLjEzLjAtZGV2LjIKfiAiZ2l0OiBnaXRodWIuY29tL2FzaHRyYXlwZXR0aW5nem9vL3VpdWEtd2F2ZXRhYmxlcyIKICB-IEFNIENudiBEd24gRk0gSFAgSFBFIEhQUCBIUFMgSFBXIEh3ZiBMUCBMUEUgTFBQIExQUyBMUFcgUGhyIFJNIFRDbWIgVENtZiBUQ3RtIFRDdHAgVE1heAogIH4gQW1wIEF2ZyBCaXQgQ2xwIENscyBDcnMgQ3RtIEN0cCBGYWQgRmxkIEZ1eiBJbnYgTWF4IE1pciBQaHMgUmN0IFJldiBTYXQgU2hmIFNsYyBTcGQgU3BsIFN0ciBTdW0gV3JwIFplcgogIH4gRG9SYW5kb23igLwgRG9SYW5kb23igLwhIERvUmFuZG9t4oC84oC8IFJlcGVhdCEKICB-IEV4cG9ydCBHcmFwaCBHcmFwaEltcHVsc2UgR3JhcGhTcGVjdHJ1bSBHcmFwaFNwZWN0cnVtRnVsbCBJbWFnZSBJbWFnZVRvVGFibGUKICB-IElIUEUgSUhQUCBJSFBTIElIUFcgSUlkIElMUEUgSUxQUCBJTFBTIElMUFcgSVBocwogIH4gSW1wb3J0SW1hZ2UgSW1wb3J0VGFibGUgSW1wb3J0V2F2ZSBOTCBQcmludCBQcmludEwgVGFibGVBdmVyYWdlIFRhYmxlSW5kZXggVGVzdAogIH4gTnN0IE5zdyBQdWwgU2F3IFNpbCBTaW4gU3FyIFRyaQogIH4gVmFsIFZhbFBJIFZhbFBPCgojIEV4YW1wbGUgY29kZQpUZXN0IFNpbjEK)
+# Uiua Wavetable Tools
 
 Utilities for generating & editing single-cycle waveforms & wavetables in Uiua. 
 
@@ -11,6 +9,8 @@ Utilities for generating & editing single-cycle waveforms & wavetables in Uiua.
 - Exports 256-waveform tables as 524288-sample, 44100hz, 16-bit .wav files
 - Exports wavetable images as 2048x256 .png files (compatible with Serum)
 - Exports waveform/table graphs & spectrum graphs as .png or .gif files
+
+### [Try online in Uiua pad](https://uiua.org/pad?src=0_13_0-dev_2__IyBFeHBlcmltZW50YWwhCiMgVWl1YSAwLjEzLjAtZGV2LjIKfiAiZ2l0OiBnaXRodWIuY29tL2FzaHRyYXlwZXR0aW5nem9vL3VpdWEtd2F2ZXRhYmxlcyIKICB-IEFNIENudiBEd24gRk0gSFAgSFBFIEhQUCBIUFMgSFBXIEh3ZiBMUCBMUEUgTFBQIExQUyBMUFcgUGhyIFJNIFRDbWIgVENtZiBUQ3RtIFRDdHAgVE1heAogIH4gQW1wIEF2ZyBCaXQgQ2xwIENscyBDcnMgQ3RtIEN0cCBGYWQgRmxkIEZ1eiBJbnYgTWF4IE1pciBQaHMgUmN0IFJldiBTYXQgU2hmIFNsYyBTcGQgU3BsIFN0ciBTdW0gV3JwIFplcgogIH4gRG9SYW5kb23igLwgRG9SYW5kb23igLwhIERvUmFuZG9t4oC84oC8IFJlcGVhdCEKICB-IEV4cG9ydCBHcmFwaCBHcmFwaEltcHVsc2UgR3JhcGhTcGVjdHJ1bSBHcmFwaFNwZWN0cnVtRnVsbCBJbWFnZSBJbWFnZVRvVGFibGUKICB-IElIUEUgSUhQUCBJSFBTIElIUFcgSUlkIElMUEUgSUxQUCBJTFBTIElMUFcgSVBocwogIH4gSW1wb3J0SW1hZ2UgSW1wb3J0VGFibGUgSW1wb3J0V2F2ZSBOTCBQcmludCBQcmludEwgVGFibGVBdmVyYWdlIFRhYmxlSW5kZXggVGVzdAogIH4gTnN0IE5zdyBQdWwgU2F3IFNpbCBTaW4gU3FyIFRyaQogIH4gVmFsIFZhbFBJIFZhbFBPCgojIEV4YW1wbGUgY29kZQpUZXN0IFNpbjEK)
 
 ### Running online
 
@@ -46,12 +46,14 @@ Uiua is an array-oriented, stack-based programming language. You should be able 
 - Spaces are optional, except when seperating names or numbers. `Sin1` is the same as `Sin 1`, but `Pul10.5` is different from `Pul1 0.5` and `InvSin1` is different from `Inv Sin1`.
 - You can assign identifiers (names) with `←`. For example, `MySineWave ← Sin1` on one line, and `Graph MySineWave` on the next line.
   - Identifiers can contain upper/lowercase letters, but no numbers, spaces, dashes, or underscores. However, they can contain subscript numbers, which can be added by typing `__` before them. For example, typing `MySineWave__01 ← Sin1` and then running the Uiua interpreter will convert this to `MySineWave₀₁ ← Sin1`, which is valid.
+- Negative numbers use `¯` and not `-`, e.g. `¯1.5` instead of `-1.5`. This symbol can be entered via the web editor toolbar, or by typing `` ` `` (backtick) and running the interpreter.
 - Adding `;;` to the middle of a line and running the interpreter will split the line at that point.
 
 # Documentation
 
 Input/output types:
 
+- **Integer**: An integer, e.g. `3`.
 - **Number**: An integer or decimal number, e.g. `1` or `0.5`.
 - **Range**: A range of numbers, e.g. `(Val 1 2)`.
 - **Value**: Either a **Number** or **Range**.
@@ -61,6 +63,331 @@ Input/output types:
 - **Impulse(s)**: An impulse response or table of impulse responses.
 - **Image**: Image data, e.g. `(ImportImage "my_image.png")`
 - **String**: Text enclosed in quotes, e.g. `"Hello!"` or `"my_file.png"`
+
+## Utilities
+
+Various utilities for writing, reading, & converting waves/tables/images.
+
+### Export [Wave/Table]
+
+Exports & plays a wave or table in a format suitable for reimporting in other tools/plugins. In the web editor, this outputs a .wav file that can be saved with right click -> "Save As". On desktop, this only plays the file in the command prompt/terminal (use **WriteAudio** instead to save a file).
+
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): A single-cycle waveform or table of waveforms.
+
+*Output*: None
+
+### Test [Wave/Table]
+
+Plays a pitched-up table or pitched-up and extended wave. Similar to **Export**, but plays in format that is more listenable, but not suitable for reimporting in other tools/plugins.
+
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): A single-cycle waveform or table of waveforms.
+
+*Output*: None
+
+### Graph [Wave/Table]
+
+Exports & displays a 512x200 graph of a wave or table. In the web editor, this outputs a .png or .gif file that can be saved with right click -> "Save As". On desktop, this only displays the file in the command prompt/terminal (use **WriteGraph** instead to save a file).
+
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): A single-cycle waveform or table of waveforms.
+
+*Output*: None
+
+### GraphSpectrum [Wave/Table]
+
+Exports & displays a 512x200 spectrum graph of a wave or table. In the web editor, this outputs a .png or .gif file that can be saved with right click -> "Save As". On desktop, this only displays the file in the command prompt/terminal (use **WriteSpectrum** instead to save a file).
+
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): A single-cycle waveform or table of waveforms.
+
+*Output*: None
+
+### Image [Wave/Table]
+
+Exports & displays a 2048x256 image version of a wave or table in a format suitable for reimporting in other tools/plugins. In the web editor, this outputs a .png file that can be saved with right click -> "Save As". On desktop, this only displays the file in the command prompt/terminal (use **WriteImage** instead to save a file).
+
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): A single-cycle waveform or table of waveforms.
+
+*Output*: None
+
+### ImportWave [Filename]
+
+Imports an audio file as a single-cycle waveform. Not compatible with bit depths above 16-bit. The file will be stretched/compressed to 2048 samples. In the web pad, this reads from files dragged into the browser window. On desktop, this reads from the folder **InDirAudio** as specified in *settings.ua* (`/in` by default).
+
+*Arguments*:
+
+- *Filename* (**String**): The name of an audio file, e.g. `"my_wave.wav"`. On desktop, this can include subdirectories, e.g. `"my_folder/my_wave.wav"`
+
+*Output*: **Wave**
+
+### ImportTable [Filename]
+
+Imports an audio file as a 256-waveform table. Not compatible with bit depths above 16-bit. The file will be stretched/compressed to 256 waves at 2048 samples each, or 524288 total samples. In the web pad, this reads from files dragged into the browser window. On desktop, this reads from the folder **InDirAudio** as specified in *settings.ua* (`/in` by default).
+
+*Arguments*:
+
+- *Filename* (**String**): The name of an audio file, e.g. `"my_table.wav"`. On desktop, this can include subdirectories, e.g. `"my_folder/my_table.wav"`
+
+*Output*: **Wave**
+
+### ImportImage [Filename]
+
+Imports an image file. The file will be converted to greyscale and stretched/compressed to 2048x256. In the web pad, this reads from files dragged into the browser window. On desktop, this reads from the folder **InDirImage** as specified in *settings.ua* (`/in` by default). Can be used with *ImageToTable* to import an image as a wavetable, e.g. `ImageToTable ImportImage "my_image.png"`
+
+*Arguments*:
+
+- *Filename* (**String**): The name of an image file, e.g. `"my_image.png"`. On desktop, this can include subdirectories, e.g. `"my_folder/my_image.png"`
+
+*Output*: **Image**
+
+### ImageToTable [Image]
+
+Converts image data to a wavetable. Usually used with *ImportImage* to import an image as a wavetable, e.g. `ImageToTable ImportImage "my_image.png"`
+
+*Arguments*:
+
+- *Image* (**Image**): Image data.
+
+*Output*: **Table**
+
+### WriteAudio (*Desktop Only*) [Name, Wave/Table]
+
+Saves a wave or table to a .wav file in a format suitable for reimporting in other tools/plugins. Saves to the folder **OutDirAudio** as specified in *settings.ua* ("/out" by default). For example, `WriteAudio "my_wave" Sin1` will create or overwrite the file "/out/my_wave.wav" by default.
+
+*Arguments*:
+
+- *Name* (**String**): Name of the file to write (without extension). Can include subdirectories.
+- *Wave/Table* (**Wave/Table**): A single-cycle waveform or table of waveforms.
+
+*Output*: None
+
+### WriteImage (*Desktop Only*) [Name, Wave/Table]
+
+Saves a 2048x256 image version of a wave or table to a .png file in a format suitable for reimporting in other tools/plugins. Saves to the folder **OutDirImage** as specified in *settings.ua* ("/out" by default), and appends **OutSuffixImage** as specified in *settings.ua* (nothing by defualt) to the end of the name. For example, `WriteImage "my_wave" Sin1` will create or overwrite the file "/out/my_wave.png" by default.
+
+*Arguments*:
+
+- *Name* (**String**): Name of the file to write (without extension). Can include subdirectories.
+- *Wave/Table* (**Wave/Table**): A single-cycle waveform or table of waveforms.
+
+*Output*: None
+
+### WriteGraph (*Desktop Only*) [Name, Wave/Table]
+
+Saves a 512x200 graph of a wave or table to a .png or .gif file in a format suitable for reimporting in other tools/plugins. Saves to the folder **OutDirGraph** as specified in *settings.ua* ("/out" by default), and appends **OutSuffixGraph** as specified in *settings.ua* ("g" by defualt) to the end of the name. For example, `WriteGraph "my_wave" Sin1` will create or overwrite the file "/out/my_waveg.png" by default.
+
+*Arguments*:
+
+- *Name* (**String**): Name of the file to write (without extension). Can include subdirectories.
+- *Wave/Table* (**Wave/Table**): A single-cycle waveform or table of waveforms.
+
+*Output*: None
+
+### WriteSpectrum (*Desktop Only*) [Name, Wave/Table]
+
+Saves a 512x200 spectrum graph of a wave or table to a .png or .gif file in a format suitable for reimporting in other tools/plugins. Saves to the folder **OutDirSpectrum** as specified in *settings.ua* ("/out" by default), and appends **OutSuffixSpectrum** as specified in *settings.ua* ("s" by defualt) to the end of the name. For example, `WriteGraph "my_wave" Sin1` will create or overwrite the file "/out/my_waves.png" by default.
+
+*Arguments*:
+
+- *Name* (**String**): Name of the file to write (without extension). Can include subdirectories.
+- *Wave/Table* (**Wave/Table**): A single-cycle waveform or table of waveforms.
+
+*Output*: None
+
+### NewName (*Desktop Only*) []
+
+Gets an unused name in the output directories (as specified in *settings.ua*), starting with "00000", then "00001", and so on. Can be used with *WriteAudio*, *WriteImage*, *WriteGraph*, *WriteSpectrum*, and/or *Repeat!* to save waves/tables in batches.
+
+*Arguments*: None
+
+*Output*: **String**
+
+### RandomAudioFile (*Desktop Only*) [Subfolder]
+
+Gets the filename of random .wav file in a subdirectory of **InDirAudio** as specified in *settings.ua* (`/in` by default). Can be used with *ImportWave* or *ImportTable* to import a random wave or table from a file, e.g. `ImportWave RandomAudioFile "my_waves"`.
+
+*Arguments*:
+- *Subfolder* (**String**): Subdirectory to pull from.
+
+*Output*: **String**
+
+### RandomImageFile (*Desktop Only*) [Subfolder]
+
+Gets the filename of random .png file in a subdirectory of **InDirImage** as specified in *settings.ua* (`/in` by default). Can be used with *ImportImage* and *ImageToTable* to import a random image from a file as a wavetable, e.g. `ImageToTable ImportImage RandomImageFile "my_images"`.
+
+*Arguments*:
+- *Subfolder* (**String**): Subdirectory to pull from.
+
+*Output*: **String**
+
+### TableAverage [Table]
+
+Averages a table into a single-cycle waveform.
+
+*Arguments*:
+
+- *Table* (**Table**): A table of waveforms.
+
+*Output*: **Wave**
+
+### TableIndex [Index, Table]
+
+Gets the waveform at a given index of a table.
+
+*Arguments*:
+
+- *Index* (**Integer**): 0-255, the index of the waveform.
+- *Table* (**Table**): A table of waveforms.
+
+*Output*: **Wave**
+
+### Print [String]
+
+Prints a string of text to the command line/terminal or web pad output. Does not include a newline, e.g. `Print "World" Print "Hello"` will print `"HelloWorld"` on one line.
+
+*Arguments*:
+
+- *String* (**String**): A string of text.
+
+*Output*: None
+
+### PrintL [String]
+
+Prints a string of text to the command line/terminal or web pad output. Includes a newline, e.g. `PrintL "World" PrintL "Hello"` will print `"Hello"` on one line and `"World"` on the next.
+
+*Arguments*:
+
+- *String* (**String**): A string of text.
+
+*Output*: None
+
+### NL []
+
+Prints a newline. `NL Print "Hello World"` is equivalent to `PrintL "Hello World"`.
+
+*Arguments*: None.
+
+*Output*: None
+
+### Rnd [Min, Max]
+
+Generates a random number in a given range.
+
+*Arguments*:
+
+- *Min* (**Number**): Minimum number.
+- *Max* (**Number**): Maximum number.
+
+*Output*: **Number**
+
+### RndI [Min, Max]
+
+Generates a random integer in a given range.
+
+*Arguments*:
+
+- *Min* (**Integer**): Minimum integer.
+- *Max* (**Integer**): Maximum integer.
+
+*Output*: **Integer**
+
+### Repeat! (*Macro*) [Function, Times]
+
+Repeats a (parenthesized) function several times. For example, `Repeat!(Graph Nsw)5` will display five different noise wave graphs.
+
+*Arguments*:
+
+- *Function*: A block of code surrounded in parentheses.
+- *Times* (**Integer**): ≥0, number of times to call the given function.
+
+### DoRandom‼ (*Macro*) [Function 1, Function 2]
+
+Calls one of two (parenthesized) functions randomly. For example, `DoRandom‼(Inv)(Rct) Sin1` (or equivalently, `DoRandom‼(Inv|Rct) Sin1`) will randomly return either an inverted sine wave or a rectified sine wave.
+
+*Arguments*:
+
+- *Function 1*: A block of code surrounded in parentheses.
+- *Function 2*: A block of code surrounded in parentheses.
+
+### DoRandom‼! (*Macro*) [Function 1, Function 2, Function 3]
+
+Like DoRandom‼, but for 3 functions.
+
+*Arguments*:
+
+- *Function 1*: A block of code surrounded in parentheses.
+- *Function 2*: A block of code surrounded in parentheses.
+- *Function 3*: A block of code surrounded in parentheses.
+
+### DoRandom‼‼ (*Macro*) [Function 1, Function 2, Function 3, Function 4]
+
+Like DoRandom‼, but for 4 functions.
+
+*Arguments*:
+
+- *Function 1*: A block of code surrounded in parentheses.
+- *Function 2*: A block of code surrounded in parentheses.
+- *Function 3*: A block of code surrounded in parentheses.
+- *Function 4*: A block of code surrounded in parentheses.
+
+## Value Ranges
+
+Generators for number ranges. Can be used to create wavetables where the inputs to waveform operations/generators change over time.
+
+### Val [Start, End]
+
+<small>Example: `Graph Amp(Val 0 1) Sin1`</small>
+
+![](doc-img/example-val.gif)
+
+Generates a range of numbers, starting with one value, and linearly changing to the end value. For example, `Amp(Val 0 1) Sin1` generates a wavetable with a sine wave that gradually increases in volume.
+
+*Arguments:*
+
+- *Start* (**Number**): Start value.
+- *End* (**Number**): End value.
+
+*Output*: **Range**
+
+### ValPI [Start, End, Exponent]
+
+<small>Example: `Graph Amp(ValPI 0 1 3) Sin1`</small>
+
+![](doc-img/example-valpi.gif)
+
+Generates a range of numbers, starting with one value and changing to the end value, with a powered in ease. For example, `Amp(ValPI 0 1 3) Sin1` generates a wavetable with a sine wave that gradually increases in volume, but changes faster at the end than the beginning.
+
+*Arguments:*
+
+- *Start* (**Number**): Start value.
+- *End* (**Number**): End value.
+- *Exponent* (**Number**): Ease exponent; 2 = quadratic ease, 3 = cubic ease, and so on.
+
+*Output*: **Range**
+
+### ValPO [Start, End, Exponent]
+
+<small>Example: `Graph Amp(ValPO 0 1 3) Sin1`</small>
+
+![](doc-img/example-valpo.gif)
+
+Generates a range of numbers, starting with one value and changing to the end value, with a powered out ease. For example, `Amp(ValPO 0 1 3) Sin1` generates a wavetable with a sine wave that gradually increases in volume, but changes faster at the beginning than the end.
+
+*Arguments:*
+
+- *Start* (**Number**): Start value.
+- *End* (**Number**): End value.
+- *Exponent* (**Number**): Ease exponent; 2 = quadratic ease, 3 = cubic ease, and so on.
+
+*Output*: **Range**
 
 ## Basic Waveforms
 

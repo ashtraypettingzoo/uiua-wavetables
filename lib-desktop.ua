@@ -7,6 +7,7 @@ L ~ "lib.ua"
   ~ Export Graph GraphImpulse GraphSpectrum GraphSpectrumFull Image ImageToTable
   ~ NL Print PrintL TableAverage TableIndex Test
   ~ Nst Nsw Pul Saw Sil Sin Sqr Tri
+  ~ Rnd RndI
   ~ Val ValPI ValPO
   ~ IId IPhs ILPS IHPS ILPW IHPW ILPP IHPP ILPE IHPE
 S ~ "settings.ua"

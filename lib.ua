@@ -81,11 +81,11 @@ IHPE ← V!(-:IPhs0ILPE)
 
 # ---- Table values
 
-# Values (linear) [Min, Max]
+# Values (linear) [Start, End]
 Val ← VR⊙⊙(VB)
-# Values (power in) [Min, Max, Base]
+# Values (power in) [Start, End, Exponent]
 ValPI ← VR⊙⊙(ⁿ:VB)
-# Values (power out) [Min, Max, Base]
+# Values (power out) [Start, End, Exponent]
 ValPO ← ⇌ValPI:
 
 # ---- Helpers

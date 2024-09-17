@@ -8,6 +8,7 @@
   ~ IHPE IHPP IHPS IHPW IId ILPE ILPP ILPS ILPW IPhs
   ~ ImportImage ImportTable ImportWave NL Print PrintL TableAverage TableIndex Test
   ~ Nst Nsw Pul Saw Sil Sin Sqr Tri
+  ~ Rnd RndI
   ~ Val ValPI ValPO
 
 # Example code
