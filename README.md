@@ -601,6 +601,11 @@ Center a wave/table by mean. Each wave in a table is centered independently.
 
 Phase-shift a wave/table.
 
+*Arguments*:
+
+- *Amount* (**Value**): 0-1, Shift amount, 0 = 0° shift, 0.5 = 180° shift, 1 = 360° shift
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Zer [Wave/Table]
