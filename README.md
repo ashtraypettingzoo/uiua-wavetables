@@ -403,7 +403,7 @@ Generates a sine wave.
 
 *Arguments:*
 
-- *Harmonic* (**Value**): Wave frequency
+- *Harmonic* (**Value**): Wave frequency.
 
 *Output*: **Wave/Table**
 
@@ -417,7 +417,7 @@ Generates a saw wave.
 
 *Arguments:*
 
-- *Harmonic* (**Value**): Wave frequency
+- *Harmonic* (**Value**): Wave frequency.
 
 *Output*: **Wave/Table**
 
@@ -431,7 +431,7 @@ Generates a triangle wave.
 
 *Arguments:*
 
-- *Harmonic* (**Value**): Wave frequency
+- *Harmonic* (**Value**): Wave frequency.
 
 *Output*: **Wave/Table**
 
@@ -445,8 +445,8 @@ Generates a pulse wave.
 
 *Arguments:*
 
-- *Harmonic* (**Value**): Wave frequency
-- *Duty* (**Value**): Duty cycle, 0-1
+- *Harmonic* (**Value**): Wave frequency.
+- *Duty* (**Value**): Duty cycle, 0-1.
 
 *Output*: **Wave/Table**
 
@@ -460,7 +460,7 @@ Generates a square wave (pulse wave with 50% duty cycle).
 
 *Arguments:*
 
-- *Harmonic* (**Value**): Wave frequency
+- *Harmonic* (**Value**): Wave frequency.
 
 *Output*: **Wave/Table**
 
@@ -472,7 +472,7 @@ Generates a square wave (pulse wave with 50% duty cycle).
 
 Generates a white noise wave.
 
-*Arguments*: None
+*Arguments*: None.
 
 *Output*: **Wave/Table**
 
@@ -484,7 +484,7 @@ Generates a white noise wave.
 
 Generates a silent wave.
 
-*Arguments*: None
+*Arguments*: None.
 
 *Output*: **Wave/Table**
 
@@ -500,7 +500,7 @@ Generators for basic wavetables. Unlike the **Basic Waveforms** listed above, th
 
 Generates a white noise table. Unlike **Nsw**, each wave in the table will be unique. 
 
-*Arguments:* None
+*Arguments*: None.
 
 *Output*: **Table**
 
@@ -516,6 +516,10 @@ Operations (effects/transformations) on waveforms & tables. If all **Value** arg
 
 Sum a list of waves/tables.
 
+*Arguments*:
+
+- *{Waves/Tables}* (List of **Wave/Table**s): A list of waves/tables surrounded by curly braces.
+
 *Output*: **Wave/Table**
 
 ### Avg [{Waves/Tables}]
@@ -525,6 +529,10 @@ Sum a list of waves/tables.
 ![](doc-img/example-avg.png)
 
 Average a list of waves/tables.
+
+*Arguments*:
+
+- *{Waves/Tables}* (List of **Wave/Table**s): A list of waves/tables surrounded by curly braces.
 
 *Output*: **Wave/Table**
 
@@ -536,6 +544,11 @@ Average a list of waves/tables.
 
 Amplify a wave/table.
 
+*Arguments*:
+
+- *Amount* (**Value**): Amplification; 0 = silence, 1 = no change.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Max [Wave/Table]
@@ -545,6 +558,10 @@ Amplify a wave/table.
 ![](doc-img/example-max.png)
 
 Maximize a wave/table by peaks. Each wave in a table is maximized independently.
+
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -556,6 +573,10 @@ Maximize a wave/table by peaks. Each wave in a table is maximized independently.
 
 Center a wave/table by peaks. Each wave in a table is centered independently.
 
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Ctm [Wave/Table]
@@ -565,6 +586,10 @@ Center a wave/table by peaks. Each wave in a table is centered independently.
 ![](doc-img/example-ctm.gif)
 
 Center a wave/table by mean. Each wave in a table is centered independently.
+
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -586,6 +611,10 @@ Phase-shift a wave/table.
 
 Phase-shift a wave/table to its rightmost zero point.
 
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Bit [Amount, Wave/Table]
@@ -595,6 +624,11 @@ Phase-shift a wave/table to its rightmost zero point.
 ![](doc-img/example-bit.gif)
 
 Bitcrush a wave/table.
+
+*Arguments*:
+
+- *Amount* (**Value**): 0-1, Bit depth; 0 = 16 bits, 1 = 1 bit.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -606,6 +640,10 @@ Bitcrush a wave/table.
 
 Reverse a wave/table left-to-right.
 
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Inv [Wave/Table]
@@ -615,6 +653,10 @@ Reverse a wave/table left-to-right.
 ![](doc-img/example-inv.png)
 
 Invert a wave/table top-to-bottom.
+
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -626,6 +668,10 @@ Invert a wave/table top-to-bottom.
 
 Mirror the left half of a wave/table into the right half.
 
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Fad [Amount, Wave/Table]
@@ -635,6 +681,11 @@ Mirror the left half of a wave/table into the right half.
 ![](doc-img/example-fad.png)
 
 Fade the start & end of a wave/table from zero.
+
+*Arguments*:
+
+- *Amount* (**Value**): ≥0, Fade time; 0 = no fade, 0.5 = fade in & out for half the wave each.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -646,6 +697,12 @@ Fade the start & end of a wave/table from zero.
 
 Crossfade between two waves/tables.
 
+*Arguments*:
+
+- *Amount* (**Value**): 0-1, Crossfade amount; 0 = 100% Start Wave/Table, 1 = 100% End Wave/Table, 0.5 = 50% blend of each.
+- *Start Wave/Table* (**Wave/Table**): First input waveform or table of waveforms.
+- *End Wave/Table* (**Wave/Table**): First input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Str [To, From, Wave/Table]
@@ -655,6 +712,12 @@ Crossfade between two waves/tables.
 ![](doc-img/example-str.gif)
 
 Stretch a wave/table from one point to another.
+
+*Arguments*:
+
+- *To* (**Value**): 0-1, Transformed stretch point; 0 = beginning, 1 = end, 0.5 = middle.
+- *From* (**Value**): 0-1, Initial stretch point; 0 = beginning, 1 = end, 0.5 = middle.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -666,6 +729,11 @@ Stretch a wave/table from one point to another.
 
 Shift a wave/table vertically.
 
+*Arguments*:
+
+- *Amount* (**Value**): Vertical shift; 0 = no shift, 1 = upward shift (half of full wave height), ¯1 = downward shift (half of full wave height).
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Slc [Amount, Wave/Table]
@@ -675,6 +743,11 @@ Shift a wave/table vertically.
 ![](doc-img/example-slc.gif)
 
 Slice a wave/table from the beginning to a given point.
+
+*Arguments*:
+
+- *Amount* (**Value**): >0, End point of slice; 1 = no change, 0.5 = slice in half.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -686,6 +759,11 @@ Slice a wave/table from the beginning to a given point.
 
 Speed a wave/table up or down in octaves.
 
+*Arguments*:
+
+- *Octaves* (**Value**): >0, Speedup/slowdown amount; 0 = no change, 1 = speed up one octave, ¯1 = slow down one octave.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Spl [Amount, Wave/Table 1, Wave/Table 2]
@@ -696,6 +774,12 @@ Speed a wave/table up or down in octaves.
 
 Splice the beginning of one wave with the end of another wave.
 
+*Arguments*:
+
+- *Amount* (**Value**): 0-1, Splice point, 0 = 100% wave/table 1, 1 = 100% wave/table 2, 0.5 = 50% split.
+- *Wave/Table 1* (**Wave/Table**): Beginning waveform or table of waveforms.
+- *Wave/Table 2* (**Wave/Table**): Ending waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Clp [Wave/Table]
@@ -705,6 +789,10 @@ Splice the beginning of one wave with the end of another wave.
 ![](doc-img/example-clp.gif)
 
 Hard-clip a wave/table.
+
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -726,6 +814,10 @@ Soft-clip a wave/table.
 
 Wrap the clipping parts of a wave/table to the other side.
 
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Fld [Wave/Table]
@@ -735,6 +827,10 @@ Wrap the clipping parts of a wave/table to the other side.
 ![](doc-img/example-fld.gif)
 
 Fold the clipping parts of a wave/table backwards.
+
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -746,6 +842,11 @@ Fold the clipping parts of a wave/table backwards.
 
 Apply tanh saturation to a wave/table.
 
+*Arguments*:
+
+- *Gain* (**Value**): Gain amplitude; 0 = silence, 1 = no change in gain.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Fuz [Gain, Shift, Wave/Table]
@@ -755,6 +856,12 @@ Apply tanh saturation to a wave/table.
 ![](doc-img/example-fuz.gif)
 
 Apply tanh fuzz to a wave/table.
+
+*Arguments*:
+
+- *Gain* (**Value**): Gain amplitude; 0 = silence, 1 = no change in gain.
+- *Shift* (**Value**): Vertical shift; 0 = no shift, 1 = upward shift (half of full wave height), ¯1 = downward shift (half of full wave height).
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -766,6 +873,10 @@ Apply tanh fuzz to a wave/table.
 
 Rectify a wave/table (invert negative values).
 
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### AM [Amplitude, Modulator, Carrier]
@@ -775,6 +886,12 @@ Rectify a wave/table (invert negative values).
 ![](doc-img/example-am.gif)
 
 Amplitude-modulate a wave/table with another wave/table.
+
+*Arguments*:
+
+- *Amplitude* (**Value**): Modulation amount; 0 = no modulation, 1 = full-wave modulation.
+- *Modulator* (**Wave/Table**): Modulator waveform or table of waveforms.
+- *Carrier* (**Wave/Table**): Carrier waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -786,6 +903,11 @@ Amplitude-modulate a wave/table with another wave/table.
 
 Ring-modulate a wave/table with another wave/table.
 
+*Arguments*:
+
+- *Modulator* (**Wave/Table**): Modulator waveform or table of waveforms.
+- *Carrier* (**Wave/Table**): Carrier waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### FM [Amplitude, Modulator, Carrier]
@@ -795,6 +917,12 @@ Ring-modulate a wave/table with another wave/table.
 ![](doc-img/example-fm.gif)
 
 Frequency-modulate a wave/table with another wave/table.
+
+*Arguments*:
+
+- *Amplitude* (**Value**): Modulation amount; 0 = no modulation, 1 = full-phase modulation.
+- *Modulator* (**Wave/Table**): Modulator waveform or table of waveforms.
+- *Carrier* (**Wave/Table**): Carrier waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -806,6 +934,11 @@ Frequency-modulate a wave/table with another wave/table.
 
 Convolve a wave/table with an impulse response.
 
+*Arguments*:
+
+- *Impulse(s)* (**Impulse(s)**): Impulse response or table of impulse responses.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Phr [Amount, Wave/Table]
@@ -815,6 +948,11 @@ Convolve a wave/table with an impulse response.
 ![](doc-img/example-phr.gif)
 
 Randomize the phases of a wave/table's harmonics.
+
+*Arguments*:
+
+- *Amount* (**Value**): 0-1: Randomization amount; 0 = no randomization, 1 = full randomization.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -826,6 +964,12 @@ Randomize the phases of a wave/table's harmonics.
 
 Filter a wave/table using another wave/table's harmonics.
 
+*Arguments*:
+
+- *Amount* (**Value**): 0-1: Filter amount; 0 = no filtering, 1 = full filtering.
+- *Filter Wave/Table* (**Wave/Table**): Filter waveform or table of waveforms.
+- *Source Wave/Table* (**Wave/Table**): Source waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### Dwn [Amount, Wave/Table]
@@ -835,6 +979,11 @@ Filter a wave/table using another wave/table's harmonics.
 ![](doc-img/example-dwn.gif)
 
 Downsample a wave/table.
+
+*Arguments*:
+
+- *Amount* (**Value**): 0-1, Downsample rate; 0 = 2048 samples, 1 = 2 samples.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -846,6 +995,11 @@ Downsample a wave/table.
 
 Apply a window-adjusted sinc low-pass filter to a wave/table.
 
+*Arguments*:
+
+- *Harmonic* (**Value**): ≥0, Cutoff, in harmonic frequency.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### HP [Harmonic, Wave/Table]
@@ -855,6 +1009,11 @@ Apply a window-adjusted sinc low-pass filter to a wave/table.
 ![](doc-img/example-hp.gif)
 
 Apply a window-adjusted sinc high-pass filter to a wave/table.
+
+*Arguments*:
+
+- *Harmonic* (**Value**): ≥0, Cutoff, in harmonic frequency.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -866,6 +1025,11 @@ Apply a window-adjusted sinc high-pass filter to a wave/table.
 
 Apply a sinc low-pass filter to a wave/table.
 
+*Arguments*:
+
+- *Harmonic* (**Value**): ≥0, Cutoff, in harmonic frequency.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### HPS [Harmonic, Wave/Table]
@@ -875,6 +1039,11 @@ Apply a sinc low-pass filter to a wave/table.
 ![](doc-img/example-hps.gif)
 
 Apply a sinc high-pass filter to a wave/table.
+
+*Arguments*:
+
+- *Harmonic* (**Value**): ≥0, Cutoff, in harmonic frequency.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -886,6 +1055,12 @@ Apply a sinc high-pass filter to a wave/table.
 
 Apply a windowed-sinc low-pass filter to a wave/table.
 
+*Arguments*:
+
+- *Harmonic* (**Value**): ≥0, Cutoff, in harmonic frequency.
+- *Window* (**Value**) ≥0, Window size, in harmonic length.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### HPW [Harmonic, Window, Wave/Table]
@@ -895,6 +1070,12 @@ Apply a windowed-sinc low-pass filter to a wave/table.
 ![](doc-img/example-hpw.gif)
 
 Apply a windowed-sinc high-pass filter to a wave/table.
+
+*Arguments*:
+
+- *Harmonic* (**Value**): ≥0, Cutoff, in harmonic frequency.
+- *Window* (**Value**) ≥0, Window size, in harmonic length.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -906,6 +1087,11 @@ Apply a windowed-sinc high-pass filter to a wave/table.
 
 Apply a pulse low-pass filter to a wave/table.
 
+*Arguments*:
+
+- *Harmonic* (**Value**): ≥0, Cutoff, in harmonic frequency.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### HPP [Harmonic, Wave/Table]
@@ -915,6 +1101,11 @@ Apply a pulse low-pass filter to a wave/table.
 ![](doc-img/example-hpp.gif)
 
 Apply a pulse high-pass filter to a wave/table.
+
+*Arguments*:
+
+- *Harmonic* (**Value**): ≥0, Cutoff, in harmonic frequency.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -926,6 +1117,11 @@ Apply a pulse high-pass filter to a wave/table.
 
 Apply an exponential low-pass filter to a wave/table.
 
+*Arguments*:
+
+- *Harmonic* (**Value**): ≥0, Cutoff, in harmonic frequency.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Wave/Table**
 
 ### HPE [Harmonic, Wave/Table]
@@ -935,6 +1131,11 @@ Apply an exponential low-pass filter to a wave/table.
 ![](doc-img/example-hpe.gif)
 
 Apply an exponential high-pass filter to a wave/table.
+
+*Arguments*:
+
+- *Harmonic* (**Value**): ≥0, Cutoff, in harmonic frequency.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Wave/Table**
 
@@ -950,6 +1151,10 @@ Operations (effects/transformations) on entire tables. Unlike the *wave operatio
 
 Maximize a table by peaks. Each wave in a table is maximized depending on the peaks of the rest of the table.
 
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Table**
 
 ### TCtp [Wave/Table]
@@ -959,6 +1164,10 @@ Maximize a table by peaks. Each wave in a table is maximized depending on the pe
 ![](doc-img/example-tctp.gif)
 
 Center a table by peaks. Each wave in a table is centered depending on the peaks of the rest of the table.
+
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Table**
 
@@ -970,6 +1179,10 @@ Center a table by peaks. Each wave in a table is centered depending on the peaks
 
 Center a table by mean. Each wave in a table is centered depending on the mean of the rest of the table.
 
+*Arguments*:
+
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Table**
 
 ### TCmb [Amplitude, Harmonic, Wave/Table]
@@ -980,6 +1193,12 @@ Center a table by mean. Each wave in a table is centered depending on the mean o
 
 Apply a feed-back comb filter to a table.
 
+*Arguments*:
+
+- *Amplitude* (**Number**): Feedback amplitude.
+- *Harmonic* (**Number**): >0, Feedback delay, in harmonic length.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
+
 *Output*: **Table**
 
 ### TCmf [Amplitude, Harmonic, Wave/Table]
@@ -989,5 +1208,9 @@ Apply a feed-back comb filter to a table.
 ![](doc-img/example-tcmf.gif)
 
 Apply a feed-forward comb filter to a table.
+
+- *Amplitude* (**Number**): Feedforward amplitude.
+- *Harmonic* (**Number**): >0, Feedforward delay, in harmonic length.
+- *Wave/Table* (**Wave/Table**): Input waveform or table of waveforms.
 
 *Output*: **Table**
