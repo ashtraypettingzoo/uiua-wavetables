@@ -613,27 +613,7 @@ Apply an exponential high-pass filter to a wave/table.
 
 ## Table operations
 
-Operations (effects/transformations) on entire tables. Unlike the *Table operations*, these only take **Number**s as arguments (not **Range**s), and always output **Table**s (not **Waveform**s).
-
-### TCmb [Amplitude, Harmonic, Wave/Table]
-
-<small>Example: `Graph TCmb 0.5 7 Amp0.7 Saw1`</small>
-
-![](doc-img/example-tcmb.gif)
-
-Apply a feed-back comb filter to a table.
-
-*Output*: **Table**
-
-### TCmf [Amplitude, Harmonic, Wave/Table]
-
-<small>Example: `Graph TCmf 0.5 7 Amp0.7 Saw1`</small>
-
-![](doc-img/example-tcmf.gif)
-
-Apply a feed-forward comb filter to a table.
-
-*Output*: **Table**
+Operations (effects/transformations) on entire tables. Unlike the *wave operations*, these only take **Number**s as arguments (not **Range**s), and always output **Table**s (not **Waveform**s).
 
 ### TMax [Wave/Table]
 
@@ -662,5 +642,25 @@ Center a table by peaks. Each wave in a table is centered depending on the peaks
 ![](doc-img/example-tctm.gif)
 
 Center a table by mean. Each wave in a table is centered depending on the mean of the rest of the table.
+
+*Output*: **Table**
+
+### TCmb [Amplitude, Harmonic, Wave/Table]
+
+<small>Example: `Graph TCmb 0.5 7 Amp0.7 Saw1`</small>
+
+![](doc-img/example-tcmb.gif)
+
+Apply a feed-back comb filter to a table.
+
+*Output*: **Table**
+
+### TCmf [Amplitude, Harmonic, Wave/Table]
+
+<small>Example: `Graph TCmf 0.5 7 Amp0.7 Saw1`</small>
+
+![](doc-img/example-tcmf.gif)
+
+Apply a feed-forward comb filter to a table.
 
 *Output*: **Table**
