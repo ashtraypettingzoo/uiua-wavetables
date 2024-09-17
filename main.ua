@@ -13,7 +13,16 @@
   ~ Val ValPI ValPO
 
 # Example code
-Test Sin1
+Wave₁ ← Avg{Sin3 Amp0.7Sin2 Sin1}
+Wave₂ ← AM0.4Sin7 AM0.5Sin2 Sin1
+Wave₂ ← Avg{Saw1 (Pul 2 0.2)}
+Wave₄ ← Bit0.7 FM0.1Sin7 Sin1
+Tbl₁ ← FM(Val 0 1) Sin2 Sin1
+Tbl₂ ← Max Avg{Amp(Val 0 1)Sin2 Sin1}
+Tbl₃ ← Bit(Val 0 1) Crs(ValPI 0 1 2) Sin1 Sin3
+
+Tst ← Tbl₃
+Test Tst
 
 # Leave this exit call
 Exit
