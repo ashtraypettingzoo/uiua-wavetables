@@ -49,6 +49,26 @@ Uiua is an array-oriented, stack-based programming language. You should be able 
 - Negative numbers use `¯` and not `-`, e.g. `¯1.5` instead of `-1.5`. This symbol can be entered via the web editor toolbar, or by typing `` ` `` (backtick) and running the interpreter.
 - Adding `;;` to the middle of a line and running the interpreter will split the line at that point.
 
+# To Do
+
+### Issues
+
+- **Str** has unintended buzzing artifacts.
+- **NewName** does not work with subdirectories.
+
+### Features
+
+- Better error reporting
+- IR (impulse response) importing
+- Value ranges:
+  - LFO
+  - AD envelope
+  - Combining ranges end-to-end
+  - Other ease types (e.g. sin, exp, in-out)
+- Combining tables end-to-end
+- Karplus-Strong synthesis
+- Harmor-style harmonizer
+
 # Documentation
 
 Input/output types:
