@@ -27,7 +27,7 @@ Utilities for generating & editing single-cycle waveforms & wavetables in Uiua.
 ### Running on desktop
 
 1. Install [Rust](https://www.rust-lang.org/tools/install) (>=1.78).
-2. Run `cargo install --git https://github.com/uiua-lang/uiua uiua -F audio` in your command prompt/terminal.
+2. Run `cargo install --git https://github.com/uiua-lang/uiua --tag 0.13.0-dev.2 uiua -F audio` in your command prompt/terminal.
 3. [Download & extract this repository](https://github.com/ashtraypettingzoo/uiua-wavetables/archive/refs/heads/main.zip)
 4. Modify **main.ua**, replacing the code starting at the `# Example code` line, making sure to leave the `Exit` call at the bottom.
 5. Open the folder in your command prompt/terminal and run `uiua`
